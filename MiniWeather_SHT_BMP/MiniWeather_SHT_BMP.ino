@@ -203,7 +203,7 @@ void setup()
     {
         USE_SERIAL.println(String(SHT) + " meas values:");
         USE_SERIAL.println(String(sht.getHumidity()) + " %RH");
-        USE_SERIAL.println(String(sht.getTemperature()) + " 캜");
+        USE_SERIAL.println(String(sht.getTemperature()) + " 째C");
     }
 
 #endif
@@ -219,7 +219,7 @@ void setup()
     USE_SERIAL.println(String(BME) + " meas values:");
     USE_SERIAL.println(String(bme.readPressure() / 10.0) + " kPa");
     USE_SERIAL.println(String(bme.readHumidity()) + " %RH");
-    USE_SERIAL.println(String(bme.readTemperature()) + " 캜");
+    USE_SERIAL.println(String(bme.readTemperature()) + " 째C");
 #endif
 
 #ifdef BMP
@@ -231,12 +231,12 @@ void setup()
 
 
     USE_SERIAL.println(String(BMP) + " meas values:");
-    USE_SERIAL.println(String(bmp.readTemperature()) + " 캜");
+    USE_SERIAL.println(String(bmp.readTemperature()) + " 째C");
     USE_SERIAL.println(String(bmp.readPressure() / 100.0) + " kPa");
     USE_SERIAL.println(String(bmp.readAltitude()) + " m");
     USE_SERIAL.println(String(bmp.readSealevelPressure()) + " Pa");
 
-    USE_SERIAL.println(String(bmp.readTemperature()) + " 캜");
+    USE_SERIAL.println(String(bmp.readTemperature()) + " 째C");
 #endif
 #ifdef VEML
     if (!veml.begin())
@@ -292,44 +292,7 @@ void saveConfigCallback()
 
 void handleRoot()
 {
-    /*ESPStringTemplate webpage(htmlBuffer, sizeof(htmlBuffer));
-
-    TokenStringPair pair[1];
-    pair[0].setPair("%INSTAGRAM%", instagramName);
-
-    webpage.add_P(_PAGE_HEAD);
-    webpage.add_P(_PAGE_START);
-
-    webpage.add_P(_PAGE_ACTIONS);
-
-    webpage.add_P(_PAGE_CONFIG_NAME, pair, 1);
-
-    switch (mode)
-    {
-    case 1:
-        webpage.add_P(_PAGE_CONFIG_MODE1);     break;
-
-    case 2:
-        webpage.add_P(_PAGE_CONFIG_MODE2);       break;
-
-    case 3:
-
-        webpage.add_P(_PAGE_CONFIG_MODE3);       break;
-
-        break;
-
-    default:
-        webpage.add_P(_PAGE_CONFIG_MODE1);     break;
-    }
-
-    TokenStringPair intensityPair[1];
-
-
-    intensityPair[0].setPair("%INTENSITY%", matrixIntensity);
-    webpage.add_P(_PAGE_CONFIG_INTENSITY, intensityPair, 1);
-    webpage.add_P(_PAGE_FOOTER);
-
-    server.send(200, "text/html", htmlBuffer);*/
+	
 }
 
 void getApi()
@@ -412,7 +375,7 @@ void performeMeasurement()
         temperatureSht = sht.getTemperature();
 
         USE_SERIAL.println(String(humiditySht) + " %RH");
-        USE_SERIAL.println(String(temperatureSht) + " 캜");
+        USE_SERIAL.println(String(temperatureSht) + " 째C");
     }
     else
     {
@@ -429,7 +392,7 @@ void performeMeasurement()
     pressureBme = bme.readPressure() / 10.0;
 
     USE_SERIAL.println(String(humidityBme) + " %RH");
-    USE_SERIAL.println(String(temperatureBme) + " 캜");
+    USE_SERIAL.println(String(temperatureBme) + " 째C");
     USE_SERIAL.println(String(pressureBme) + " kPa");
 #endif
 #ifdef BMP
@@ -446,7 +409,7 @@ void performeMeasurement()
     temperatureBmp = bmp.readTemperature();
     pressureBmp = bmp.readPressure() / 100.0;
 
-    USE_SERIAL.println(String(temperatureBmp) + " 캜");
+    USE_SERIAL.println(String(temperatureBmp) + " 째C");
     USE_SERIAL.println(String(pressureBmp) + " kPa");
 #endif
 #ifdef VEML
