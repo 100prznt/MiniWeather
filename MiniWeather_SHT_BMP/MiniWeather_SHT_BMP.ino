@@ -57,7 +57,6 @@ Adafruit_VEML7700 veml = Adafruit_VEML7700();
 //define your default values here, if there are different values in config.json, they are overwritten.
 int interval = 300;
 char deviceName[40] = "MiniWeather";
-char ubidotsToken[160];
 
 
 //flag for saving data
@@ -132,12 +131,10 @@ void setup()
     // Requesting Instagram and Intensity for Display
     WiFiManagerParameter custom_deviceName("deviceName", "Device name", deviceName, 40);
     WiFiManagerParameter custom_interval("interval", "Update Interval (s)", String(interval).c_str(), 6, "type=\"number\" step=\"any\"");
-    WiFiManagerParameter custom_ubidotsToken("ubidotsToken", "Ubidots token", ubidotsToken, 160);
 
     // Add params to wifiManager
     wifiManager.addParameter(&custom_deviceName);
     wifiManager.addParameter(&custom_interval);
-    wifiManager.addParameter(&custom_ubidotsToken);
 
     delay(1000);
 
@@ -173,7 +170,6 @@ void setup()
     //read updated parametersu
     strcpy(deviceName, custom_deviceName.getValue());
     interval = String(custom_interval.getValue()).toInt();
-    strcpy(ubidotsToken, custom_ubidotsToken.getValue());
 
 
     //save the custom parameters to FS
@@ -271,7 +267,6 @@ void saveConfig()
 
     json["deviceName"] = deviceName;
     json["interval"] = interval;
-    json["ubidotsToken"] = ubidotsToken;
 
     File configFile = SPIFFS.open("/config.json", "w");
 
