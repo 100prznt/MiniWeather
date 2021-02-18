@@ -11,4 +11,4 @@ MiniWeather ist ein Projekt welches verschiedene Wetterdaten erfasst und im Netz
 
 # Installing the Arduino ESP32 Filesystem Uploader
 
-* [text](https://randomnerdtutorials.com/install-esp32-filesystem-uploader-arduino-ide/)
+* [Installing the Arduino ESP32 Filesystem Uploader](https://randomnerdtutorials.com/install-esp32-filesystem-uploader-arduino-ide/)
