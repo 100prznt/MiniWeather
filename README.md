@@ -19,7 +19,7 @@ MiniWeather ist ein Projekt welches verschiedene Wetterdaten erfasst und im Netz
 You can use this JS:
 
 ```javascript
-const url = 'http://192.168.1.183/api';
+const url = 'http://<MiniWeather-IP>/api';
 const idTemperature = '0_userdata.0.MiniWeather.Temperature';
 const idTemperatureBmp = '0_userdata.0.MiniWeather.TemperatureBMP';
 const idHumidity = '0_userdata.0.MiniWeather.Humidity';
